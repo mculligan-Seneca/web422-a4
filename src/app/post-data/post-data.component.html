@@ -16,8 +16,7 @@
                         <div class="comments meta-last"><i class="icon-comment"></i>{{post.comments.length}}</div>
                     </div>
                 </div>
-                <div class="post-body">
-                    {{post.post}}
+                <div class="post-body" [innerHtml]="post.post">
                 </div>
                 <div class="post-tags"><a routerLink="#" class="tag" *ngFor="let tag of post.tags;">{{tag}}</a></div>
                 <div class="post-comments">
@@ -31,9 +30,7 @@
                                 <div class="title"><strong>{{comment.postedBy}}</strong><span class="date">{{comment.date}}</span></div>
                             </div>
                         </div>
-                        <div class="comment-body">
-                          {{comment.comment}}
-                        </div>
+                        <div class="comment-body" [innerHtml]="comment.comment"></div>
                     </div>
                    
                 <div class="add-comment">
