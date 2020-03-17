@@ -7,6 +7,9 @@
                   
                     <!-- post -->
                     <app-post-card *ngFor="let blogPost of blogPosts;"[post]="blogPost" class="post col-xl-6"></app-post-card>
+                    <div class="w-100">
+                        <app-paging [page]="page" (newPage)="getPage($event)"></app-paging>
+                    </div>
                     <!-- post  -->
                 </div>
             </div>    
@@ -16,7 +19,7 @@
             <!-- Widget [Search Bar Widget]-->
             <app-search-widget></app-search-widget>
             <!-- Widget [Latest Posts Widget] -->
-            <app-latest-posts [posts]="blogPosts.slice(0,3)"></app-latest-posts>
+            <app-latest-posts></app-latest-posts>
             <!-- Widget [Categories Widget]-->
             <app-categories></app-categories>
             <!-- Widget [Tags Cloud Widget]-->

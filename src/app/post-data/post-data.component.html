@@ -3,7 +3,7 @@
             <div class="post-thumbnail"><img [src]="post.featuredImage" alt="..." class="img-fluid"></div>
             <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">
-                    <div class="category"><a routerLink="#">{{post.category}}</a><a routerLink="#">Financial</a></div>
+                    <div class="category"><a [routerLink]="['/blog']" [queryParams]="{category: post.category}">{{post.category}}</a><a routerLink="#">Financial</a></div>
                 </div>
                 <h1>{{post.title}}<a routerLink="#"><i class="fa fa-bookmark-o"></i></a></h1>
                 <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a routerLink="#" class="author d-flex align-items-center flex-wrap">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="post-body" [innerHtml]="post.post">
                 </div>
-                <div class="post-tags"><a routerLink="#" class="tag" *ngFor="let tag of post.tags;">{{tag}}</a></div>
+                <div class="post-tags"><a  class="tag" *ngFor="let tag of post.tags;" [routerLink]="['/blog']" [queryParams]="{tag: tag.substring(1)}">{{tag}}</a></div>
                 <div class="post-comments">
                     <header>
                         <h3 class="h6">Post Comments<span class="no-of-comments">({{post.comments.length}})</span></h3>
@@ -27,7 +27,7 @@
                         <div class="comment-header d-flex justify-content-between">
                             <div class="user d-flex align-items-center">
                                 <div class="image"><img src="/assets/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                                <div class="title"><strong>{{comment.postedBy}}</strong><span class="date">{{comment.date}}</span></div>
+                                <div class="title"><strong>{{comment.postedBy}}</strong><span class="date">{{comment.date| date:'mediumDate'}}</span></div>
                             </div>
                         </div>
                         <div class="comment-body" [innerHtml]="comment.comment"></div>
