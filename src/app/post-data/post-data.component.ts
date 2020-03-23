@@ -17,6 +17,7 @@ export class PostDataComponent implements OnInit,OnDestroy {
     this.querySub = this.route.params.subscribe((params)=>{
       
       this.postServe.getPostById(params['id']).subscribe((response)=>this.post=response);
+      window.scrollTo(0,0);
     });
   }
 
